@@ -171,7 +171,7 @@ function Portfolio() {
       </Section>
 
       {/* Education */}
-      <Section id="education" eyebrow="Education" title="Academic background.">
+      <Section id="education" eyebrow="Education" title="Academic background." tone="invert">
         <ul className="divide-y divide-border">
           {education.map((e) => (
             <li
@@ -228,7 +228,7 @@ function Portfolio() {
       </Section>
 
       {/* Projects */}
-      <Section id="projects" eyebrow="Mini Projects" title="Selected work.">
+      <Section id="projects" eyebrow="Mini Projects" title="Selected work." tone="invert">
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
             <article
@@ -273,7 +273,7 @@ function Portfolio() {
       </Section>
 
       {/* Contact */}
-      <Section id="contact" eyebrow="Get in touch" title="Let's connect.">
+      <Section id="contact" eyebrow="Get in touch" title="Let's connect." tone="invert">
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Open to entry-level opportunities in data analytics and related

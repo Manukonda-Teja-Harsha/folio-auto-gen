@@ -233,7 +233,7 @@ function Portfolio() {
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group rounded-2xl border border-border p-7 bg-card hover:shadow-soft transition"
+              className="group rounded-2xl border border-border p-7 bg-card text-card-foreground hover:shadow-soft transition"
             >
               <h3 className="text-xl font-semibold mb-3">{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{p.body}</p>

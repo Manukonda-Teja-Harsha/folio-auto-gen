@@ -196,26 +196,34 @@ function Portfolio() {
       {/* Skills */}
       <Section id="skills" eyebrow="Skills" title="Tools & strengths.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skills.map((s) => (
-            <div
-              key={s.group}
-              className="rounded-2xl border border-border p-6 bg-card hover:shadow-soft transition"
-            >
-              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {s.group}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {s.items.map((i) => (
-                  <span
-                    key={i}
-                    className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm"
-                  >
-                    {i}
+          {skills.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.group}
+                className="rounded-2xl border border-border p-6 bg-card text-card-foreground hover:shadow-soft transition"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
                   </span>
-                ))}
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    {s.group}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {s.items.map((i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm"
+                    >
+                      {i}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 

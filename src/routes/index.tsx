@@ -102,18 +102,18 @@ function Portfolio() {
           <p className="reveal text-xs uppercase tracking-[0.25em] text-muted-foreground mb-6">
             Portfolio · 2026
           </p>
-          <div className="reveal flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8">
-            <img
-              src={avatarImg}
-              alt="Portrait of Manukonda Sri Lakshmi"
-              className="h-28 w-28 sm:h-36 sm:w-36 md:h-44 md:w-44 lg:h-52 lg:w-52 rounded-3xl object-cover shadow-soft border border-border shrink-0"
-              loading="eager"
-            />
+          <div className="reveal flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-8">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-[1.05]">
               Manukonda
               <br />
               Sri Lakshmi.
             </h1>
+            <img
+              src={avatarImg}
+              alt="Portrait of Manukonda Sri Lakshmi"
+              className="h-32 w-32 sm:h-40 sm:w-40 md:h-48 md:w-48 lg:h-56 lg:w-56 rounded-3xl object-cover shadow-soft border border-border shrink-0"
+              loading="eager"
+            />
           </div>
           <p className="reveal mt-8 max-w-2xl text-lg md:text-xl text-muted-foreground leading-relaxed">
             Aspiring data analyst and B.Tech ECE student. I turn raw data into

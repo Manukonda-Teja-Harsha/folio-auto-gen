@@ -233,7 +233,7 @@ function Portfolio() {
           {projects.map((p) => (
             <article
               key={p.title}
-              className="group rounded-2xl border border-border p-7 bg-card hover:shadow-soft transition"
+              className="group rounded-2xl border border-border p-7 bg-card text-card-foreground hover:shadow-soft transition"
             >
               <h3 className="text-xl font-semibold mb-3">{p.title}</h3>
               <p className="text-muted-foreground leading-relaxed">{p.body}</p>
@@ -274,42 +274,76 @@ function Portfolio() {
 
       {/* Contact */}
       <Section id="contact" eyebrow="Get in touch" title="Let's connect." tone="invert">
-        <div className="grid md:grid-cols-2 gap-10 items-start">
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-            Open to entry-level opportunities in data analytics and related
-            roles. Reach out via email or LinkedIn — I&rsquo;d love to hear
-            from you.
-          </p>
-          <div className="space-y-3">
+        <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-2 space-y-6">
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              Open to entry-level opportunities in data analytics and related
+              roles. Reach out via email or LinkedIn — I&rsquo;d love to hear
+              from you.
+            </p>
             <a
               href="mailto:srilakshmimanukonda393@gmail.com"
-              className="flex items-center justify-between rounded-2xl border border-border p-5 hover:bg-accent transition"
+              className="inline-flex items-center gap-2 rounded-full bg-background text-foreground px-6 py-3 text-sm font-medium hover:opacity-90 transition"
             >
-              <span className="inline-flex items-center gap-3">
-                <Mail className="h-4 w-4" /> srilakshmimanukonda393@gmail.com
-              </span>
-              <ExternalLink className="h-4 w-4 opacity-60" />
+              <Mail className="h-4 w-4" /> Send a message
             </a>
-            <a
-              href="tel:+918186827290"
-              className="flex items-center justify-between rounded-2xl border border-border p-5 hover:bg-accent transition"
-            >
-              <span className="inline-flex items-center gap-3">
-                <Phone className="h-4 w-4" /> +91 81868 27290
-              </span>
-              <ExternalLink className="h-4 w-4 opacity-60" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/srilakshmi-manukonda-353400376"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center justify-between rounded-2xl border border-border p-5 hover:bg-accent transition"
-            >
-              <span className="inline-flex items-center gap-3">
-                <Linkedin className="h-4 w-4" /> LinkedIn Profile
-              </span>
-              <ExternalLink className="h-4 w-4 opacity-60" />
-            </a>
+          </div>
+
+          <div className="lg:col-span-3 grid sm:grid-cols-2 gap-3">
+            {[
+              {
+                href: "mailto:srilakshmimanukonda393@gmail.com",
+                icon: Mail,
+                label: "Email",
+                value: "srilakshmimanukonda393@gmail.com",
+              },
+              {
+                href: "tel:+918186827290",
+                icon: Phone,
+                label: "Phone",
+                value: "+91 81868 27290",
+              },
+              {
+                href: "https://www.linkedin.com/in/srilakshmi-manukonda-353400376",
+                icon: Linkedin,
+                label: "LinkedIn",
+                value: "srilakshmi-manukonda",
+                external: true,
+              },
+              {
+                href: "#top",
+                icon: MapPin,
+                label: "Location",
+                value: "Palnadu, Andhra Pradesh",
+              },
+            ].map((c) => {
+              const Icon = c.icon;
+              return (
+                <a
+                  key={c.label}
+                  href={c.href}
+                  {...(c.external
+                    ? { target: "_blank", rel: "noreferrer" }
+                    : {})}
+                  className="group rounded-2xl border border-border p-5 hover:bg-accent hover:text-accent-foreground transition flex items-start gap-4"
+                >
+                  <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+                    <Icon className="h-4 w-4" strokeWidth={1.75} />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                      {c.label}
+                    </p>
+                    <p className="mt-1 text-sm font-medium truncate">
+                      {c.value}
+                    </p>
+                  </div>
+                  {c.external && (
+                    <ExternalLink className="h-4 w-4 opacity-50 group-hover:opacity-100 transition" />
+                  )}
+                </a>
+              );
+            })}
           </div>
         </div>
 

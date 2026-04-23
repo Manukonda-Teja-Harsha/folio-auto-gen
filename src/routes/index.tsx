@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { ArrowDown, Download, Mail, Phone, MapPin, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowDown, Download, Mail, Phone, MapPin, Linkedin, ExternalLink, Code2, Library, Database, BarChart3, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import avatarImg from "@/assets/avatar.jpeg";
 import { Section } from "@/components/Section";
@@ -48,11 +48,11 @@ const education = [
 ];
 
 const skills = [
-  { group: "Programming", items: ["Python"] },
-  { group: "Python Libraries", items: ["Pandas", "NumPy", "Matplotlib"] },
-  { group: "Data Analysis", items: ["SQL", "Data Cleaning", "Report Generation"] },
-  { group: "Visualization", items: ["Power BI", "MS Excel"] },
-  { group: "Soft Skills", items: ["Communication", "Analytical Thinking", "Problem Solving", "Leadership"] },
+  { group: "Programming", icon: Code2, items: ["Python"] },
+  { group: "Python Libraries", icon: Library, items: ["Pandas", "NumPy", "Matplotlib"] },
+  { group: "Data Analysis", icon: Database, items: ["SQL", "Data Cleaning", "Report Generation"] },
+  { group: "Visualization", icon: BarChart3, items: ["Power BI", "MS Excel"] },
+  { group: "Soft Skills", icon: Sparkles, items: ["Communication", "Analytical Thinking", "Problem Solving", "Leadership"] },
 ];
 
 const projects = [
@@ -171,7 +171,7 @@ function Portfolio() {
       </Section>
 
       {/* Education */}
-      <Section id="education" eyebrow="Education" title="Academic background.">
+      <Section id="education" eyebrow="Education" title="Academic background." tone="invert">
         <ul className="divide-y divide-border">
           {education.map((e) => (
             <li
@@ -196,31 +196,39 @@ function Portfolio() {
       {/* Skills */}
       <Section id="skills" eyebrow="Skills" title="Tools & strengths.">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {skills.map((s) => (
-            <div
-              key={s.group}
-              className="rounded-2xl border border-border p-6 bg-card hover:shadow-soft transition"
-            >
-              <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">
-                {s.group}
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {s.items.map((i) => (
-                  <span
-                    key={i}
-                    className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm"
-                  >
-                    {i}
+          {skills.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.group}
+                className="rounded-2xl border border-border p-6 bg-card text-card-foreground hover:shadow-soft transition"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-secondary text-secondary-foreground">
+                    <Icon className="h-4.5 w-4.5" strokeWidth={1.75} />
                   </span>
-                ))}
+                  <p className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
+                    {s.group}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {s.items.map((i) => (
+                    <span
+                      key={i}
+                      className="inline-flex items-center rounded-full border border-border px-3 py-1 text-sm"
+                    >
+                      {i}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Section>
 
       {/* Projects */}
-      <Section id="projects" eyebrow="Mini Projects" title="Selected work.">
+      <Section id="projects" eyebrow="Mini Projects" title="Selected work." tone="invert">
         <div className="grid md:grid-cols-2 gap-6">
           {projects.map((p) => (
             <article
@@ -265,7 +273,7 @@ function Portfolio() {
       </Section>
 
       {/* Contact */}
-      <Section id="contact" eyebrow="Get in touch" title="Let's connect.">
+      <Section id="contact" eyebrow="Get in touch" title="Let's connect." tone="invert">
         <div className="grid md:grid-cols-2 gap-10 items-start">
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
             Open to entry-level opportunities in data analytics and related

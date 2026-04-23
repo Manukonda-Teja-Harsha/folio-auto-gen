@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import { ArrowDown, Download, Mail, Phone, MapPin, Linkedin, ExternalLink } from "lucide-react";
+import { ArrowDown, Download, Mail, Phone, MapPin, Linkedin, ExternalLink, Code2, Library, Database, BarChart3, Sparkles } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import avatarImg from "@/assets/avatar.jpeg";
 import { Section } from "@/components/Section";
@@ -48,11 +48,11 @@ const education = [
 ];
 
 const skills = [
-  { group: "Programming", items: ["Python"] },
-  { group: "Python Libraries", items: ["Pandas", "NumPy", "Matplotlib"] },
-  { group: "Data Analysis", items: ["SQL", "Data Cleaning", "Report Generation"] },
-  { group: "Visualization", items: ["Power BI", "MS Excel"] },
-  { group: "Soft Skills", items: ["Communication", "Analytical Thinking", "Problem Solving", "Leadership"] },
+  { group: "Programming", icon: Code2, items: ["Python"] },
+  { group: "Python Libraries", icon: Library, items: ["Pandas", "NumPy", "Matplotlib"] },
+  { group: "Data Analysis", icon: Database, items: ["SQL", "Data Cleaning", "Report Generation"] },
+  { group: "Visualization", icon: BarChart3, items: ["Power BI", "MS Excel"] },
+  { group: "Soft Skills", icon: Sparkles, items: ["Communication", "Analytical Thinking", "Problem Solving", "Leadership"] },
 ];
 
 const projects = [
